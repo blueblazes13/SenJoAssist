@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="apMainScreen" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #424a54;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.blueblazes13.senjoassist.MainScreenFXMLController">
+    
+</AnchorPane>
