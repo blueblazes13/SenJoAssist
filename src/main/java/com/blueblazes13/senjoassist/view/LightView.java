@@ -31,6 +31,7 @@ import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
@@ -70,14 +71,19 @@ public class LightView extends Region {
         menuButton.setFitWidth(50);
         menuButton.setLayoutX(5);
         menuButton.setLayoutY(5);
-        menuButton.setOnMouseClicked(this::onTouch);
+        
+        Rectangle background = new Rectangle(50, 50);
+        background.setFill(Color.TRANSPARENT);
+        background.setLayoutX(5);
+        background.setLayoutY(5);
+        background.setOnMouseClicked(this::onTouch);
         
         this.background = new AnchorPane();
         this.background.setPrefSize(60, 60);
         this.background.setStyle("-fx-border-width: 2; -fx-border-color: #c1c1c1; -fx-border-radius: 10;");
         
         
-        this.getChildren().addAll(this.background, menuButton);
+        this.getChildren().addAll(this.background, menuButton, background);
     }
     
     
@@ -231,7 +237,6 @@ public class LightView extends Region {
     private void fadeIn(Node node) {
         final double x = node.getLayoutX();
         final double y = node.getLayoutY();
-        System.out.println(y);
         MoveTo move = new MoveTo(x-10, y);
         LineTo line = new LineTo(x+10, y);
         Path path = new Path();
