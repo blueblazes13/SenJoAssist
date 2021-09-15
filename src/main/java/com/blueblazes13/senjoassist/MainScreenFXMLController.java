@@ -1,22 +1,18 @@
 package com.blueblazes13.senjoassist;
 
-import com.blueblazes13.senjoassist.view.Cube;
 import com.blueblazes13.senjoassist.model.HueModel;
 import com.blueblazes13.senjoassist.model.RadioModel;
+import com.blueblazes13.senjoassist.model.SecretModel;
 import com.blueblazes13.senjoassist.model.SpotifyModel;
-import com.blueblazes13.senjoassist.view.IdleAnimation;
 import com.blueblazes13.senjoassist.view.LightView;
 import com.blueblazes13.senjoassist.view.TimeView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class MainScreenFXMLController {
@@ -33,6 +29,7 @@ public class MainScreenFXMLController {
     @FXML
     void initialize() {
         update();
+        SecretModel.load();
         new HueModel();
         new SpotifyModel();
     }
@@ -68,7 +65,7 @@ public class MainScreenFXMLController {
         ImageView settings = new ImageView(image);
         settings.setFitHeight(50);
         settings.setFitWidth(50);
-        settings.setLayoutX(850);
+        settings.setLayoutX(950);
         settings.setLayoutY(500);
         
         // Show light buttons
