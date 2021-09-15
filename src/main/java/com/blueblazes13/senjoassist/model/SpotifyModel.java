@@ -15,7 +15,6 @@ import com.wrapper.spotify.requests.authorization.authorization_code.Authorizati
 import com.wrapper.spotify.requests.authorization.client_credentials.ClientCredentialsRequest;
 import java.io.IOException;
 import java.net.URI;
-import java.util.concurrent.Future;
 import org.apache.hc.core5.http.ParseException;
 
 /**
@@ -30,8 +29,8 @@ public class SpotifyModel {
         URI redirectUri = SpotifyHttpManager.makeUri("joeykoster.be:25562");
         
         SpotifyApi.Builder spotifyBuilder = new SpotifyApi.Builder();
-        spotifyBuilder.setClientId("6012022133604345a537796a203b7e17");
-        spotifyBuilder.setClientSecret("61c73aadc8b04bb88f9d503ebf7d7330");
+        spotifyBuilder.setClientId(SecretModel.getSpotifyId());
+        spotifyBuilder.setClientSecret(SecretModel.getSpotifySecret());
         spotifyBuilder.setRedirectUri(redirectUri);
         
         SpotifyApi spotifyApi = spotifyBuilder.build();

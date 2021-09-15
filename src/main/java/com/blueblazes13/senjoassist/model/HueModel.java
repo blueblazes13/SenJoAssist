@@ -30,7 +30,7 @@ public class HueModel {
     private void setup() {
         final String bridgeIp = "192.168.0.227";
         final String appName = "SenJoAssist";
-        final String apiKey = "thnv8-4zg725ocX7psf9IRWI7-qzkPJTigu9CaMD";
+        final String apiKey = SecretModel.getHueApiKey();
         
         this.hue = new Hue(bridgeIp, apiKey);
         System.out.println(hue.getRooms());
