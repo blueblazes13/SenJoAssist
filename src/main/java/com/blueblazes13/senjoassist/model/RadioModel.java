@@ -34,6 +34,7 @@ public class RadioModel {
     public RadioModel() {
         this.view = new RadioView(this);
         
+        this.stations = new HashMap<>();
         this.stations.put("Radio 538", "https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO538.mp3?dist=538_mobileweb&ttag=talpa_consent:1&gdpr=1&gdpr_consent=CPGcNTHPLkPI0ADABBNLBpCsAP_AAEJAAAAAGCQGQAKgAXABAADIAIkATABPADEAG4APwAgABGAClAFcAO8AhABFoCOAI6AS4AnYBWQD9gIpAXmAvYBggGCQFgAKgAXABAADIAIgATQAngBiAD8AIwAUoArgB3gEIAIsARwAnYBWQD9gIpAXmAwQAsJAKAAqACAAGQARAAmABPAFKAO8AjgC8x0AwACoAIAAZABEACYAE8AMQApQB3gEWAI4AvMcADAAuAK4AhBSAYABUAEAAMgAiABMACeAGIAUoA7wCLAEcAXmUABAAXAJ2SAAgAXJQBwAiABMADEAKUAd4BHAF5kIAgATAAxADvAI4GAAgCuFQAwAmAEcAXmMgBgBMAI4AvM.e8AAAAAAA4AA");
     }
     
