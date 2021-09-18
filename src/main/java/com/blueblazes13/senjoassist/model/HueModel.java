@@ -6,6 +6,8 @@
 package com.blueblazes13.senjoassist.model;
 
 import io.github.zeroone3010.yahueapi.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -32,10 +34,21 @@ public class HueModel {
         final String appName = "SenJoAssist";
         final String apiKey = SecretModel.getHueApiKey();
         
-        this.hue = new Hue(bridgeIp, apiKey);
-        System.out.println(hue.getRooms());
-        this.room = (Room) this.hue.getRooms().toArray()[0];
-        System.out.println(this.room.getLights());
+        TimerTask task = new TimerTask(){
+            @Override
+            public void run() {
+                try {
+                    hue = new Hue(bridgeIp, apiKey);
+                    System.out.println(hue.getRooms());
+                    room = (Room) hue.getRooms().toArray()[0];
+                    System.out.println(room.getLights());
+                } catch (Exception ex) {
+                    System.err.println("No bridge found!");
+                }
+            }
+        };
+        Timer timer = new Timer(true);
+        timer.schedule(task, 0);
     }
     
     
