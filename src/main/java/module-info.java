@@ -1,8 +1,9 @@
 module com.blueblazes13.senjoassist {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.base;
-    requires java.sql;
+    requires transitive javafx.controls;
+    requires transitive javafx.fxml;
+    requires transitive java.base;
+    requires transitive java.sql;
+    requires transitive javafx.graphics;
     
     opens com.blueblazes13.senjoassist to javafx.fxml;
     opens com.blueblazes13.senjoassist.model to com.google.gson;
