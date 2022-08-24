@@ -3,6 +3,7 @@ package com.blueblazes13.senjoassist.model;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.blueblazes13.senjoassist.interfaces.MenuItem;
 import com.blueblazes13.senjoassist.view.SquareView;
 
 import javafx.animation.FadeTransition;
@@ -17,7 +18,6 @@ public class MenuModel {
     SquareView[][] squares;
     AnchorPane pane;
     Timer timer;
-
 
     public MenuModel() {
         this.squares = new SquareView[3][4];
@@ -43,7 +43,7 @@ public class MenuModel {
 
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 4; x++) {
-                SquareView square = new SquareView();
+                SquareView square = new SquareView((getMenuItem(x, y) != null)?getMenuItem(x, y).getView():null);
                 square.setLayoutX(((x < 2)? 10: 260) + 10*x + SquareView.WIDTH*x);
                 square.setLayoutY(10 + 10*y + SquareView.HEIGHT*y);
                 square.setVisible(false);
@@ -56,6 +56,24 @@ public class MenuModel {
                 this.pane.getChildren().add(square);
             }
         }
+    }
+
+
+    /**
+     * Fills the menu with a predefined set of items
+     * 
+     * @param x The x coordinate
+     * @param y The y coordinate
+     * @return  The item that provides the functionality
+     */
+    private MenuItem getMenuItem(int x, int y) {
+        final MenuItem[][] items = {
+            {new HueModel() , null, null, null},
+            {null           , null, null, null},
+            {null           , null, null, null}
+        };
+
+        return items[y][x];
     }
 
 

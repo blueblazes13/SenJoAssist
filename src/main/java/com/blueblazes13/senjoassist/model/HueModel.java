@@ -6,14 +6,19 @@
 package com.blueblazes13.senjoassist.model;
 
 import io.github.zeroone3010.yahueapi.*;
+import javafx.scene.input.MouseEvent;
+
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.blueblazes13.senjoassist.interfaces.MenuItem;
+import com.blueblazes13.senjoassist.view.LightView;
 
 /**
  *
  * @author joeyk
  */
-public class HueModel {
+public class HueModel implements MenuItem {
     
     /*
     [{"success":{"username":"thnv8-4zg725ocX7psf9IRWI7-qzkPJTigu9CaMD"}}]
@@ -55,5 +60,15 @@ public class HueModel {
     public Room getRoom() {
         return this.room;
     }
+
+    public LightView getView() {
+        return new LightView(this);
+    }
+
+    // TODO: Move event from LightView to this function
+    public void onMouseClick(MouseEvent me) {
+        
+    }
+
     
 }

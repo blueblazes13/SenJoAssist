@@ -14,10 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
-import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -27,12 +24,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
@@ -67,20 +62,19 @@ public class LightView extends Region {
         }
         Image image = new Image(stream);
         ImageView menuButton = new ImageView(image);
-        menuButton.setFitHeight(50);
-        menuButton.setFitWidth(50);
-        menuButton.setLayoutX(5);
-        menuButton.setLayoutY(5);
+        menuButton.setFitHeight(SquareView.HEIGHT-60);
+        menuButton.setFitWidth(SquareView.WIDTH-60);
+        menuButton.setLayoutX(30);
+        menuButton.setLayoutY(30);
         
-        Rectangle background = new Rectangle(50, 50);
+        Rectangle background = new Rectangle(SquareView.WIDTH - 10, SquareView.HEIGHT - 10);
         background.setFill(Color.TRANSPARENT);
         background.setLayoutX(5);
         background.setLayoutY(5);
         background.setOnMouseClicked(this::onTouch);
         
         this.background = new AnchorPane();
-        this.background.setPrefSize(60, 60);
-        this.background.setStyle("-fx-border-width: 2; -fx-border-color: #c1c1c1; -fx-border-radius: 10;");
+        this.background.setPrefSize(SquareView.WIDTH, SquareView.HEIGHT);
         
         
         this.getChildren().addAll(this.background, menuButton, background);

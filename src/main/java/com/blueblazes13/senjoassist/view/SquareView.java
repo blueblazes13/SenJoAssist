@@ -13,6 +13,10 @@ public class SquareView extends Region {
         update();
     }
 
+    public SquareView(Node content) {
+        update(content);
+    }
+
 
     /**
      * Updates the complete view and loads the specified content
@@ -38,7 +42,7 @@ public class SquareView extends Region {
         if (content != null) this.getChildren().add(content);
     }
 
-    
+
     /**
      * Updates the complete view
      */
