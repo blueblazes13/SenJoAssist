@@ -71,7 +71,7 @@ public class LightView extends Region {
         background.setFill(Color.TRANSPARENT);
         background.setLayoutX(5);
         background.setLayoutY(5);
-        background.setOnMouseClicked(this::onTouch);
+        //background.setOnMouseClicked(this::onTouch);
         
         this.background = new AnchorPane();
         this.background.setPrefSize(SquareView.WIDTH, SquareView.HEIGHT);

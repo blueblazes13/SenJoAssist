@@ -1,8 +1,8 @@
 module com.blueblazes13.senjoassist {
     requires transitive javafx.controls;
     requires transitive javafx.fxml;
-    requires transitive java.base;
-    requires transitive java.sql;
+    requires  java.base;
+    requires  java.sql;
     requires transitive javafx.graphics;
     
     opens com.blueblazes13.senjoassist to javafx.fxml;
@@ -10,6 +10,7 @@ module com.blueblazes13.senjoassist {
     
     exports com.blueblazes13.senjoassist;
     exports com.blueblazes13.senjoassist.model;
+    exports com.blueblazes13.senjoassist.view;
     requires yetanotherhueapi;
     requires spotify.web.api.java;
     requires org.slf4j;

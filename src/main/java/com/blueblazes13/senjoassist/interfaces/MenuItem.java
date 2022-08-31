@@ -7,5 +7,6 @@ public interface MenuItem {
 
     public abstract Node getView();
     public abstract void onMouseClick(MouseEvent me);
+    public abstract Node getSymbol();
 
 }

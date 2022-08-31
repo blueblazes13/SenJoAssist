@@ -9,7 +9,6 @@ import com.blueblazes13.senjoassist.view.SquareView;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -48,9 +47,7 @@ public class MenuModel {
                 square.setLayoutY(10 + 10*y + SquareView.HEIGHT*y);
                 square.setVisible(false);
 
-                square.setOnMouseClicked((MouseEvent me) -> {
-                    System.out.println("Clicked!");
-                });
+                if (getMenuItem(x, y) != null) square.setOnMouseClicked(getMenuItem(x, y)::onMouseClick);
 
                 this.squares[y][x] = square;
                 this.pane.getChildren().add(square);

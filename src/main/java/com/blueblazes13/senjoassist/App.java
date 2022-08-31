@@ -7,22 +7,25 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
+    public static String MAIN_MENU = "MainScreenFXML";
     private static Scene scene;
+    private static ArrayList<Stage> stages = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("MainScreenFXML"), 1024, 600);
+        scene = new Scene(loadFXML(App.MAIN_MENU), 1024, 600);
         stage.setScene(scene);
         stage.show();
     }
     
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
